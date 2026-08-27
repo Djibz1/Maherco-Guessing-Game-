@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAHERCO TOP 10 CHALLENGE</title>
+<title>تحدي ماهركو TOP 10</title>
 <style>
 :root{--bg:#090b12;--card:#111522;--card2:#171c2b;--text:#f5f7ff;--muted:#9ba5bd;--accent:#7c5cff;--accent2:#20d6a5;--danger:#ff5c7a;--gold:#ffd166}
 *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:radial-gradient(circle at top,#1b1733 0,#090b12 48%);color:var(--text);min-height:100vh}
@@ -30,26 +30,26 @@ button,input,select{font:inherit} button{cursor:pointer;border:0}
 <body>
 <div class="app">
   <div class="top">
-    <div class="logo">MAHERCO <span>TOP 10</span> CHALLENGE</div>
-    <div class="badge" id="statusBadge">8 PLAYERS • 10 ROUNDS</div>
+    <div class="logo">تحدي <span>MAHERCO TOP 10</span></div>
+    <div class="badge" id="statusBadge">٨ لاعبين • ١٠ جولات</div>
   </div>
 
   <section id="home" class="card hero">
-    <div class="category">A SQUAD COMPETITION</div>
-    <h1>GUESS THE <span>TOP 10</span></h1>
-    <p>10 rounds. 8 players. Put the answers in the correct order. Every exact position is worth 1 point.</p>
-    <button class="btn" onclick="showSetup()">CREATE GAME</button>
+    <div class="category">منافسة السكواد</div>
+    <h1>خَمِّن <span>TOP 10</span></h1>
+    <p>١٠ جولات، ٨ لاعبين. رتّب الإجابات بالترتيب الصحيح. كل مركز صحيح = نقطة واحدة.</p>
+    <button class="btn" onclick="showSetup()">إنشاء اللعبة</button>
   </section>
 
   <section id="setup" class="card hidden">
-    <h2>Game Setup</h2>
+    <h2>إعداد اللعبة</h2>
     <div class="setup">
-      <div class="field"><label>Round time (seconds)</label><input id="timeInput" type="number" min="30" max="600" value="180"></div>
-      <div class="field"><label>Prize pool</label><input id="prizeInput" value="$150 / $100 / $50"></div>
+      <div class="field"><label>وقت الجولة (بالثواني)</label><input id="timeInput" type="number" min="30" max="600" value="180"></div>
+      <div class="field"><label>مجموع الجوائز</label><input id="prizeInput" value="$150 / $100 / $50"></div>
     </div>
-    <h3>Players</h3>
+    <h3>اللاعبون</h3>
     <div class="players" id="playersInputs"></div>
-    <div class="controls"><button class="btn" onclick="startGame()">START GAME</button></div>
+    <div class="controls"><button class="btn" onclick="startGame()">بدء اللعبة</button></div>
   </section>
 
   <section id="game" class="hidden">
@@ -59,41 +59,41 @@ button,input,select{font:inherit} button{cursor:pointer;border:0}
           <div><div class="category" id="category"></div><div class="roundtitle" id="roundTitle"></div></div>
           <div class="timer" id="timer">3:00</div>
         </div>
-        <div class="instructions">Drag each item into the position you think is correct. You have <b>10 points available</b> this round. Correct position = <b>+1</b>.</div>
+        <div class="instructions">اسحب كل عنصر إلى المركز الذي تظن أنه صحيح. لديك <b>١٠ نقاط متاحة</b> في هذه الجولة. المركز الصحيح = <b>+١</b>.</div>
         <div class="list" id="slots"></div>
-        <h3 style="margin-top:24px">Available answers</h3>
+        <h3 style="margin-top:24px">الإجابات المتاحة</h3>
         <div class="items" id="items"></div>
         <div class="controls">
-          <button class="btn secondary" onclick="resetRound()">RESET</button>
-          <button class="btn green" onclick="submitRound()">LOCK ANSWERS</button>
+          <button class="btn secondary" onclick="resetRound()">إعادة الترتيب</button>
+          <button class="btn green" onclick="submitRound()">تثبيت الإجابات</button>
         </div>
       </main>
       <aside class="card panel">
-        <h3>LIVE LEADERBOARD</h3>
+        <h3>الترتيب الحالي</h3>
         <div class="scoreboard" id="scoreboard"></div>
         <hr style="border-color:#252c40;margin:20px 0">
-        <div class="mini">Round <span id="roundNo">1</span> / 10</div>
-        <div class="mini">Max total score: 100</div>
+        <div class="mini">الجولة <span id="roundNo">1</span> / 10</div>
+        <div class="mini">أقصى مجموع: ١٠٠ نقطة</div>
       </aside>
     </div>
   </section>
 
   <section id="results" class="card hidden">
     <div class="roundbar">
-      <div><div class="category">ROUND RESULTS</div><div class="roundtitle" id="resultTitle"></div></div>
+      <div><div class="category">نتائج الجولة</div><div class="roundtitle" id="resultTitle"></div></div>
       <div class="badge" id="roundScore"></div>
     </div>
     <div class="result" id="resultList"></div>
-    <div class="controls"><button class="btn" onclick="nextRound()">NEXT ROUND</button></div>
+    <div class="controls"><button class="btn" onclick="nextRound()">الجولة التالية</button></div>
   </section>
 
   <section id="final" class="card final hidden">
-    <div class="category">GAME OVER</div>
-    <h1>FINAL LEADERBOARD</h1>
-    <p class="instructions">10 rounds complete. Here are the winners.</p>
+    <div class="category">انتهت اللعبة</div>
+    <h1>الترتيب النهائي</h1>
+    <p class="instructions">اكتملت الجولات العشر. إليكم الفائزين.</p>
     <div class="podium" id="podium"></div>
     <div class="scoreboard" id="finalBoard"></div>
-    <div class="controls"><button class="btn" onclick="location.reload()">NEW GAME</button></div>
+    <div class="controls"><button class="btn" onclick="location.reload()">لعبة جديدة</button></div>
   </section>
 </div>
 
@@ -117,11 +117,11 @@ function qs(id){return document.getElementById(id)}
 function show(id){["home","setup","game","results","final"].forEach(x=>qs(x).classList.toggle("hidden",x!==id))}
 function showSetup(){
   qs("playersInputs").innerHTML="";
-  for(let i=0;i<8;i++) qs("playersInputs").innerHTML += `<div class="playerinput"><input id="p${i}" value="${i===0?"Maherco":"Player "+(i+1)}" placeholder="Player ${i+1}"></div>`;
+  for(let i=0;i<8;i++) qs("playersInputs").innerHTML += `<div class="playerinput"><input id="p${i}" value="${i===0?"Maherco":"اللاعب "+(i+1)}" placeholder="اللاعب ${i+1}"></div>`;
   show("setup");
 }
 function startGame(){
-  players=[]; for(let i=0;i<8;i++) players.push(qs("p"+i).value.trim()||"Player "+(i+1));
+  players=[]; for(let i=0;i<8;i++) players.push(qs("p"+i).value.trim()||"اللاعب "+(i+1));
   scores=players.map(()=>0); seconds=Math.max(30,parseInt(qs("timeInput").value)||180);
   roundIndex=0; loadRound(); show("game");
 }
@@ -132,7 +132,7 @@ function loadRound(){
   qs("category").textContent=r.cat; qs("roundTitle").textContent=r.title; qs("roundNo").textContent=roundIndex+1;
   answer=shuffled(r.items);
   qs("items").innerHTML=answer.map((x,i)=>`<div class="item" draggable="true" data-value="${escapeHtml(x)}">${x}</div>`).join("");
-  qs("slots").innerHTML=Array.from({length:10},(_,i)=>`<div class="slot"><div class="num">${i+1}</div><div class="drop" data-pos="${i}">Drop an answer here</div></div>`).join("");
+  qs("slots").innerHTML=Array.from({length:10},(_,i)=>`<div class="slot"><div class="num">${i+1}</div><div class="drop" data-pos="${i}">ضع الإجابة هنا</div></div>`).join("");
   bindDnD(); updateBoard(); startTimer();
 }
 function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
@@ -175,7 +175,7 @@ function submitRound(auto=false){
   const active=Math.min(roundIndex%players.length,players.length-1);
   scores[active]+=points;
   qs("resultTitle").textContent=r.title;
-  qs("roundScore").textContent=`${players[active]}: +${points}/10`;
+  qs("roundScore").textContent=`${players[active]}: +${points}/١٠`;
   qs("resultList").innerHTML=r.items.map((x,i)=>`<div class="resultrow ${correct[i]?"correct":"wrong"}"><span>#${i+1} — ${x}</span><b>${correct[i]?"+1":"0"}</b></div>`).join("");
   show("results");
   updateBoard();
@@ -183,12 +183,12 @@ function submitRound(auto=false){
 function nextRound(){roundIndex++;if(roundIndex>=10){finishGame();return}show("game");loadRound()}
 function updateBoard(){
   const order=players.map((p,i)=>({p,s:scores[i],i})).sort((a,b)=>b.s-a.s);
-  qs("scoreboard").innerHTML=order.map((x,i)=>`<div class="playerrow"><div class="rank">${i+1}</div><div>${x.p}<div class="mini">${x.s}/100</div></div><div class="score">${x.s}</div></div>`).join("");
+  qs("scoreboard").innerHTML=order.map((x,i)=>`<div class="playerrow"><div class="rank">${i+1}</div><div>${x.p}<div class="mini">${x.s}/١٠٠</div></div><div class="score">${x.s}</div></div>`).join("");
 }
 function finishGame(){
   const order=players.map((p,i)=>({p,s:scores[i]})).sort((a,b)=>b.s-a.s);
   qs("podium").innerHTML=[1,0,2].map((idx,j)=>{let x=order[idx]; if(!x)return""; let cls=j===0?"first":j===1?"second":"third"; let prize=j===0?"$150":j===1?"$100":"$50"; return `<div class="pod ${cls}"><div>${j===0?"🥇":j===1?"🥈":"🥉"}</div><strong>${x.p}</strong><div class="money">${prize}</div><div>${x.s} pts</div></div>`}).join("");
-  qs("finalBoard").innerHTML=order.map((x,i)=>`<div class="playerrow"><div class="rank">${i+1}</div><div>${x.p}</div><div class="score">${x.s}/100</div></div>`).join("");
+  qs("finalBoard").innerHTML=order.map((x,i)=>`<div class="playerrow"><div class="rank">${i+1}</div><div>${x.p}</div><div class="score">${x.s}/١٠٠</div></div>`).join("");
   show("final");
 }
 </script>
